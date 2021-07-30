@@ -39,16 +39,17 @@ Response:
   ```
     { 
         message: 'welcome, username'
-        token: <AUTH_TOKEN> 
+        token: <AUTH_TOKEN>,
+        user: user
     }
   ```
 
 </details>
 
-##Classes
+## Classes
 **api/classes**
 
-###Get All Classes
+### Get All Classes
 
 <details>
     <summary>
@@ -86,4 +87,44 @@ Response:
   ]
  ```
  
+</details>
+    
+#### POST
+
+<details>
+    <summary>
+     api/classes/instructor
+    </summary>
+
+Body:
+  | Parameter | Type | Note|
+  | :-- | :-- | :-- |
+  | class_name | string | (required) |
+  | class_type | string | (required) |
+  | start_time | string | (required) |
+  | duration | integer | (required) |
+  | intensity_level | string | (required) |
+  | class_location | string | (required) |
+  | registered | integer | 0 |
+  | max_size | integer | 0 |
+  | instructor_id | string | (required) |
+ 
+
+Response:
+
+  ```
+    {
+        "class_id": 1,
+        "class_name": "Boxing For Beginners",
+        "class_type": 'Boxing',
+        "start_time": "08:00:00",
+        "duration": 60,
+        "intensity_level": "Easy",
+        "class_location": "Arizona",
+        "registered": 3,
+        "max_size": 10,
+        "instructor_id": 1
+    }
+  ```
+
 </details>
