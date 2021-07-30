@@ -9,7 +9,7 @@ exports.seed = function (knex) {
             class_location: 'somewhere around the corner',
             registered: 2,
             max_size: 10,
-            user_id: 1
+            instructor_id: 1
         },
         {
             class_name: 'Boxing for Beginners',
@@ -20,7 +20,7 @@ exports.seed = function (knex) {
             class_location: 'somewhere around the corner',
             registered: 3,
             max_size: 10,
-            user_id: 1
+            instructor_id: 1
         }
     ])
 }

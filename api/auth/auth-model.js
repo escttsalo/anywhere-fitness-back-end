@@ -9,7 +9,7 @@ const addUser = async user =>  {
     return newUser
 }
 
-const getBy = async filter => {
+const getBy = filter => {
   return db('users')
     .where(filter)
     .first()

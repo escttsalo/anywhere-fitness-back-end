@@ -5,13 +5,31 @@ const buildToken = require('./token-builder');
 
 const { userCheck, bodyCheck } = require('./auth-middleware')
 
-router.get('/', async (req, res, next) => {
+//Get All Users
+router.get('/', async (req, res, next) => { //eslint-disable-line
     const users = await User.getAll()
     res.status(200).json(users)
 })
 
+//Get User By Username
+router.get('/:username', async (req, res, next) => {
+  try {
+      const user = await User.getBy(req.params)
+      if (user) {
+          console.log('users available', user)
+          res.status(200).json(user)
+      } else {
+          res.status(404).json({
+              message: 'User not found!'
+          })
+      }
+  } catch (err) {
+      next(err)
+  }
+})
+
+//Post New User
 router.post('/register', userCheck, bodyCheck, async (req, res, next) => {
-  console.log('check')
   try {
     let user = req.body
     const rounds = process.env.BCRYPT_ROUNDS || 8
@@ -24,8 +42,8 @@ router.post('/register', userCheck, bodyCheck, async (req, res, next) => {
   }
 });
 
+//Post Login of User
 router.post('/login', bodyCheck, async (req, res, next) => {
-  console.log('check login')
   try{
     const {username, password} = req.body
     const user = await User.getBy({username})
@@ -33,7 +51,8 @@ router.post('/login', bodyCheck, async (req, res, next) => {
       const token = buildToken(user)
       res.status(200).json({
         message:`Welcome, ${user.username}`,
-        token
+        token,
+        user
       })
     } else {
       res.status(401).json({
