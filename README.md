@@ -1,9 +1,13 @@
 # API
 
 ## Database Schema
-![image](https://user-images.githubusercontent.com/81676732/138034333-2196e684-e115-43bc-8f66-023a45ddc0f9.png)
+<details>
+    <summary>Image and Link</summary>
+    
+![image](https://user-images.githubusercontent.com/81676732/138051508-f06789ef-4148-4a28-8c70-c17f73af4fc0.png)
 
 https://drive.google.com/file/d/11E4R9bNSGPTi_cVkJcYnWvaWV9rs41OH/view?usp=sharing
+</details>
 
 ## Users
 
